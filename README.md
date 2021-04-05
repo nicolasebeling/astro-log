@@ -1,3 +1,3 @@
 # Astro Log
 
-_Astro Log_ is a mobile app for logging and sharing your astronomical observations.
+**Astro Log** is a mobile app for logging and sharing your astronomical observations. No, this is *not* an astrology platform!
