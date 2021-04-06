@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nicolasebeling.astro_log">
    <application
-        android:label="astro_log"
+        android:label="Astro Log"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'providers/current_theme.dart';
+
+import 'views/main_view.dart';
 
 void main() {
   runApp(AstroLog());
@@ -7,11 +12,17 @@ void main() {
 class AstroLog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Astro Log',
-      theme: ThemeData(),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(),
+    return ChangeNotifierProvider(
+      create: (context) => CurrentTheme(),
+      builder: (context, _) {
+        return MaterialApp(
+          title: 'Astro Log',
+          debugShowCheckedModeBanner: false,
+          theme: Provider.of<CurrentTheme>(context).theme,
+          darkTheme: Provider.of<CurrentTheme>(context).darkTheme,
+          home: MainView(),
+        );
+      },
     );
   }
 }
