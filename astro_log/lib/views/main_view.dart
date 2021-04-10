@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/image_header.dart';
+import '../widgets/sliver_image_app_bar.dart';
 import '../widgets/dashboard.dart';
 
 class MainView extends StatelessWidget {
@@ -9,7 +9,7 @@ class MainView extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          ImageHeader(),
+          SliverImageAppBar(),
           Dashboard(),
         ],
       ),

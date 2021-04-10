@@ -7,25 +7,20 @@ import '../icons/octicons.dart';
 
 import '../views/settings_view.dart';
 import '../views/profile_view.dart';
+import '../views/add_observation_view.dart';
 
-class ImageHeader extends StatelessWidget {
+class SliverImageAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: Provider.of<CurrentTheme>(context).nightMode ? null : 150,
-      title: Provider.of<CurrentTheme>(context).nightMode
-          ? Text(
-              'Good evening!',
-              softWrap: false,
-              overflow: TextOverflow.fade,
-            )
-          : null,
+      expandedHeight:
+          Provider.of<CurrentTheme>(context).nightMode ? kToolbarHeight : 150,
       centerTitle: true,
-      stretch: true,
+      stretch: !Provider.of<CurrentTheme>(context).nightMode,
       pinned: true,
       leading: Row(
         children: [
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           IconButton(
             splashRadius: 20,
             icon: const Icon(Icons.settings_rounded),
@@ -40,12 +35,13 @@ class ImageHeader extends StatelessWidget {
           )
         ],
       ),
-      leadingWidth: 112,
+      leadingWidth: 106,
       actions: [
         IconButton(
           splashRadius: 20,
           icon: const Icon(Octicons.telescope),
-          onPressed: () {},
+          onPressed: () =>
+              Navigator.of(context).pushNamed(AddObservationView.routeName),
         ),
         IconButton(
           splashRadius: 20,
@@ -53,30 +49,32 @@ class ImageHeader extends StatelessWidget {
           onPressed: () => Provider.of<CurrentTheme>(context, listen: false)
               .toggleNightMode(),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
       ],
-      flexibleSpace: Provider.of<CurrentTheme>(context).nightMode
-          ? null
-          : FlexibleSpaceBar(
-              title: Text(
-                'Good evening!',
-                softWrap: false,
-                overflow: TextOverflow.fade,
-              ),
-              stretchModes: [
-                StretchMode.zoomBackground,
-                StretchMode.fadeTitle,
-              ],
-              centerTitle: true,
-              background: Image.asset(
+      flexibleSpace: Stack(
+        children: <Widget>[
+          if (!Provider.of<CurrentTheme>(context).nightMode)
+            Positioned.fill(
+              child: Image.asset(
                 'assets/images/milkyway.jpg',
-                alignment: AlignmentDirectional(
-                  0,
-                  -0.5,
-                ),
+                alignment: const AlignmentDirectional(0, -0.5),
                 fit: BoxFit.cover,
               ),
             ),
+          FlexibleSpaceBar(
+            title: Text(
+              'Good evening!',
+              softWrap: false,
+              overflow: TextOverflow.visible,
+            ),
+            stretchModes: const [
+              StretchMode.zoomBackground,
+              StretchMode.fadeTitle,
+            ],
+            centerTitle: true,
+          ),
+        ],
+      ),
     );
   }
 }

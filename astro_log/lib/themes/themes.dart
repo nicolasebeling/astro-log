@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 final theme = ThemeData.light().copyWith(
-  primaryColor: Colors.blue[800],
   appBarTheme: AppBarTheme(
     brightness: Brightness.dark,
   ),
