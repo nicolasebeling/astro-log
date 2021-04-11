@@ -22,7 +22,11 @@ class ImageAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title ?? ''),
+      title: Text(
+        title ?? '',
+        softWrap: false,
+        overflow: TextOverflow.fade,
+      ),
       centerTitle: true,
       flexibleSpace: Provider.of<CurrentTheme>(context).nightMode
           ? null

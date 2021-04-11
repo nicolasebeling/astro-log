@@ -19,15 +19,14 @@ class CurrentTheme with ChangeNotifier {
   }
 
   void toggleNightMode() {
-    if (_nightMode)
+    if (_nightMode) {
       SystemChrome.setEnabledSystemUIOverlays([
-        SystemUiOverlay.bottom,
         SystemUiOverlay.top,
-      ]);
-    else
-      SystemChrome.setEnabledSystemUIOverlays([
         SystemUiOverlay.bottom,
       ]);
+    } else {
+      SystemChrome.setEnabledSystemUIOverlays([]);
+    }
     _nightMode = !_nightMode;
     notifyListeners();
   }

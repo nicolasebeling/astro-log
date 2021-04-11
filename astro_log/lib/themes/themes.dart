@@ -3,11 +3,24 @@ import 'package:flutter/services.dart';
 
 final theme = ThemeData.light().copyWith(
   appBarTheme: AppBarTheme(
+    color: Colors.black,
     brightness: Brightness.dark,
+  ),
+  bottomAppBarColor: Colors.black,
+  iconTheme: IconThemeData(
+    color: Colors.white,
   ),
 );
 
-final darkTheme = ThemeData.dark().copyWith();
+final darkTheme = ThemeData.dark().copyWith(
+  appBarTheme: AppBarTheme(
+    color: Colors.black,
+  ),
+  bottomAppBarColor: Colors.black,
+  iconTheme: IconThemeData(
+    color: Colors.white,
+  ),
+);
 
 final nightTheme = ThemeData(
   brightness: Brightness.dark,
@@ -23,8 +36,13 @@ final nightTheme = ThemeData(
     ),
   ),
   appBarTheme: AppBarTheme(
+    color: Colors.black,
     iconTheme: IconThemeData(
       color: Colors.red,
     ),
+  ),
+  bottomAppBarColor: Colors.black,
+  iconTheme: IconThemeData(
+    color: Colors.red,
   ),
 );

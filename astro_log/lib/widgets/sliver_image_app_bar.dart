@@ -7,16 +7,17 @@ import '../icons/octicons.dart';
 
 import '../views/settings_view.dart';
 import '../views/profile_view.dart';
-import '../views/add_observation_view.dart';
+import '../views/observation_view.dart';
 
 class SliverImageAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight:
-          Provider.of<CurrentTheme>(context).nightMode ? kToolbarHeight : 150,
+      expandedHeight: 150,
       centerTitle: true,
-      stretch: !Provider.of<CurrentTheme>(context).nightMode,
+      // Doesn't work!
+      // stretch: Provider.of<CurrentTheme>(context).nightMode ? false : true,
+      stretch: true,
       pinned: true,
       leading: Row(
         children: [
@@ -41,7 +42,7 @@ class SliverImageAppBar extends StatelessWidget {
           splashRadius: 20,
           icon: const Icon(Octicons.telescope),
           onPressed: () =>
-              Navigator.of(context).pushNamed(AddObservationView.routeName),
+              Navigator.of(context).pushNamed(ObservationView.routeName),
         ),
         IconButton(
           splashRadius: 20,
@@ -65,7 +66,7 @@ class SliverImageAppBar extends StatelessWidget {
             title: Text(
               'Good evening!',
               softWrap: false,
-              overflow: TextOverflow.visible,
+              overflow: TextOverflow.fade,
             ),
             stretchModes: const [
               StretchMode.zoomBackground,
