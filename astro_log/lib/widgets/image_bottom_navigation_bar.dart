@@ -7,14 +7,14 @@ import 'image_bottom_navigation_bar_item.dart';
 
 class ImageBottomNavigationBar extends StatelessWidget {
   final String? image;
-  final double? bottomPadding;
+  final double? systemBottomPadding;
   final int? pageIndex;
   final void Function(int pageIndex)? selectPage;
   final List<IconData>? iconData;
 
   ImageBottomNavigationBar({
     @required this.image,
-    @required this.bottomPadding,
+    @required this.systemBottomPadding,
     @required this.pageIndex,
     @required this.selectPage,
     @required this.iconData,
@@ -51,7 +51,7 @@ class ImageBottomNavigationBar extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(
                 top: 10,
-                bottom: bottomPadding == 0 ? 10 : 0,
+                bottom: systemBottomPadding == 0 ? 10 : 0,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

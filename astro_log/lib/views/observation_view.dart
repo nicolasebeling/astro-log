@@ -36,7 +36,7 @@ class _ObservationViewState extends State<ObservationView> {
     {
       'iconData': Octicons.telescope,
       'page': Center(
-        child: Text('oserved objects'),
+        child: Text('observed objects'),
       ),
     },
     {
@@ -73,7 +73,7 @@ class _ObservationViewState extends State<ObservationView> {
 
   @override
   Widget build(BuildContext context) {
-    final _bottomPadding = MediaQuery.of(context).padding.bottom;
+    final _systemBottomPadding = MediaQuery.of(context).padding.bottom;
     return Scaffold(
       appBar: ImageAppBar(
         'assets/images/milkyway.jpg',
@@ -101,7 +101,7 @@ class _ObservationViewState extends State<ObservationView> {
           ),
           ImageBottomNavigationBar(
             image: 'assets/images/milkyway.jpg',
-            bottomPadding: _bottomPadding,
+            systemBottomPadding: _systemBottomPadding,
             pageIndex: _pageIndex,
             selectPage: _selectPage,
             iconData:
