@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/current_theme.dart';
+import '../providers/dynamic_theme.dart';
 
 import '../icons/octicons.dart';
 
@@ -16,7 +16,7 @@ class SliverImageAppBar extends StatelessWidget {
       expandedHeight: 150,
       centerTitle: true,
       // Doesn't work!
-      // stretch: Provider.of<CurrentTheme>(context).nightMode ? false : true,
+      // stretch: Provider.of<DynamicTheme>(context).nightMode ? false : true,
       stretch: true,
       pinned: true,
       leading: Row(
@@ -47,14 +47,14 @@ class SliverImageAppBar extends StatelessWidget {
         IconButton(
           splashRadius: 20,
           icon: const Icon(Icons.remove_red_eye_rounded),
-          onPressed: () => Provider.of<CurrentTheme>(context, listen: false)
+          onPressed: () => Provider.of<DynamicTheme>(context, listen: false)
               .toggleNightMode(),
         ),
         const SizedBox(width: 10),
       ],
       flexibleSpace: Stack(
         children: <Widget>[
-          if (!Provider.of<CurrentTheme>(context).nightMode)
+          if (!Provider.of<DynamicTheme>(context).nightMode)
             Positioned.fill(
               child: Image.asset(
                 'assets/images/milkyway.jpg',

@@ -29,38 +29,38 @@ class _ObservationViewState extends State<ObservationView> {
   final List<Map<String, dynamic>> _pages = [
     {
       'iconData': Octicons.location,
-      'page': Center(
-        child: Text('time & place'),
+      'page': const Center(
+        child: const Text('time & place'),
       ),
     },
     {
       'iconData': Octicons.telescope,
-      'page': Center(
-        child: Text('observed objects'),
+      'page': const Center(
+        child: const Text('observed objects'),
       ),
     },
     {
       'iconData': Meteocons.cloud_moon_inv,
-      'page': Center(
-        child: Text('weather conditions'),
+      'page': const Center(
+        child: const Text('weather conditions'),
       ),
     },
     {
       'iconData': Octicons.light_bulb,
-      'page': Center(
-        child: Text('light pollution'),
+      'page': const Center(
+        child: const Text('light pollution'),
       ),
     },
     {
       'iconData': Octicons.device_camera,
-      'page': Center(
-        child: Text('images'),
+      'page': const Center(
+        child: const Text('images'),
       ),
     },
     {
       'iconData': Octicons.note,
-      'page': Center(
-        child: Text('notes'),
+      'page': const Center(
+        child: const Text('notes'),
       ),
     },
   ];
@@ -80,7 +80,7 @@ class _ObservationViewState extends State<ObservationView> {
         title: 'Observation',
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.save_rounded),
+            icon: const Icon(Icons.save_rounded),
             splashRadius: 20,
             onPressed: () {},
           )

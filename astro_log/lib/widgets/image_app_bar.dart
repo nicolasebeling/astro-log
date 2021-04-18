@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/current_theme.dart';
+import '../providers/dynamic_theme.dart';
 
 class ImageAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String image;
   final String? title;
   final List<Widget>? actions;
 
-  ImageAppBar(
+  const ImageAppBar(
     this.image, {
     this.title,
     this.actions,
@@ -28,25 +28,30 @@ class ImageAppBar extends StatelessWidget implements PreferredSizeWidget {
         overflow: TextOverflow.fade,
       ),
       centerTitle: true,
-      flexibleSpace: Provider.of<CurrentTheme>(context).nightMode
+      flexibleSpace: Provider.of<DynamicTheme>(context).nightMode
           ? null
           : Stack(
               children: [
                 Positioned.fill(
                   child: Image.asset(
                     image,
-                    alignment: AlignmentDirectional(0, -0.5),
+                    alignment: const AlignmentDirectional(0, -0.5),
                     fit: BoxFit.cover,
                   ),
                 ),
               ],
             ),
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios),
+        onPressed: () => Navigator.of(context).pop(),
+        splashRadius: 20,
+      ),
       actions: [
         ...actions ?? [],
         IconButton(
           splashRadius: 20,
           icon: const Icon(Icons.remove_red_eye_rounded),
-          onPressed: () => Provider.of<CurrentTheme>(context, listen: false)
+          onPressed: () => Provider.of<DynamicTheme>(context, listen: false)
               .toggleNightMode(),
         ),
         SizedBox(width: 10),

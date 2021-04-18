@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'providers/current_theme.dart';
+import 'providers/dynamic_theme.dart';
 
 import 'config/routing_table.dart';
 
@@ -14,13 +14,13 @@ class AstroLog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (BuildContext context) => CurrentTheme(),
+      create: (BuildContext context) => DynamicTheme(),
       builder: (
         BuildContext context,
         Widget? child,
       ) {
         return FutureBuilder(
-          future: Provider.of<CurrentTheme>(context, listen: false)
+          future: Provider.of<DynamicTheme>(context, listen: false)
               .fetchThemeData(),
           builder: (
             BuildContext context,
@@ -29,9 +29,9 @@ class AstroLog extends StatelessWidget {
             return MaterialApp(
               title: 'Astro Log',
               debugShowCheckedModeBanner: false,
-              themeMode: Provider.of<CurrentTheme>(context).appearence,
-              theme: Provider.of<CurrentTheme>(context).theme,
-              darkTheme: Provider.of<CurrentTheme>(context).darkTheme,
+              themeMode: Provider.of<DynamicTheme>(context).appearance,
+              theme: Provider.of<DynamicTheme>(context).theme,
+              darkTheme: Provider.of<DynamicTheme>(context).darkTheme,
               home: snapshot.connectionState == ConnectionState.done
                   ? MainView()
                   : SplashScreen(),

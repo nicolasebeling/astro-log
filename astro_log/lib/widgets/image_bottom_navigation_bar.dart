@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/current_theme.dart';
+import '../providers/dynamic_theme.dart';
 
 import 'image_bottom_navigation_bar_item.dart';
 
@@ -39,7 +39,7 @@ class ImageBottomNavigationBar extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          if (!Provider.of<CurrentTheme>(context).nightMode)
+          if (!Provider.of<DynamicTheme>(context).nightMode)
             Positioned.fill(
               child: Image.asset(
                 'assets/images/milkyway.jpg',
