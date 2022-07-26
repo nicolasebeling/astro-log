@@ -4,7 +4,9 @@ import 'package:flutter/services.dart';
 final theme = ThemeData(
   appBarTheme: AppBarTheme(
     color: Colors.black,
-    brightness: Brightness.dark,
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarIconBrightness: Brightness.dark,
+    ),
   ),
   bottomAppBarColor: Colors.black,
   iconTheme: IconThemeData(
@@ -39,7 +41,9 @@ final nightTheme = ThemeData(
   accentColor: Colors.red,
   appBarTheme: AppBarTheme(
     color: Colors.black,
-    brightness: Brightness.light,
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarIconBrightness: Brightness.dark,
+    ),
     iconTheme: IconThemeData(
       color: Colors.red,
     ),

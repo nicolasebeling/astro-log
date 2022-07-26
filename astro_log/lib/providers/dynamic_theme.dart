@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,6 +29,16 @@ class DynamicTheme with ChangeNotifier {
     final preferences = await SharedPreferences.getInstance();
     if (preferences.containsKey('nightMode'))
       _nightMode = preferences.getBool('nightMode') ?? false;
+    if (_nightMode)
+      SystemChrome.setEnabledSystemUIMode(
+        SystemUiMode.manual,
+        overlays: [],
+      );
+    else
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+        SystemUiOverlay.top,
+        SystemUiOverlay.bottom,
+      ]);
     if (preferences.containsKey('appearance'))
       _appearance = ThemeMode.values[preferences.getInt('appearance') ?? 0];
   }
@@ -41,6 +53,16 @@ class DynamicTheme with ChangeNotifier {
   Future<bool> toggleNightMode() async {
     _nightMode = !_nightMode;
     notifyListeners();
+    if (_nightMode)
+      SystemChrome.setEnabledSystemUIMode(
+        SystemUiMode.manual,
+        overlays: [],
+      );
+    else
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+        SystemUiOverlay.top,
+        SystemUiOverlay.bottom,
+      ]);
     final preferences = await SharedPreferences.getInstance();
     return await preferences.setBool('nightMode', _nightMode);
   }
