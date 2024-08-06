@@ -1,6 +1,8 @@
 # Astro Log
 
-Ever wondered what your friends have been observing last night? Or whether you've observed that particular galaxy before? **Astro Log** is a mobile app for logging and sharing your astronomical observations. Side note: No, this is *not* an astrology platform!
+Ever wondered what your friends have been observing last night? Or whether you've observed that particular galaxy before? **Astro Log** is a mobile app for logging and sharing your astronomical observations. Side note: No, this is *not* an astrology platform.
+
+_Note: I started this project in 2021 but didn't have the time to really work on it. Still, I believe that amateur astronomers (or people who just like pretty pictures_ 😉 _) would love this app. Hence, I may continue working on it in the future._
 
 ## Features
 
